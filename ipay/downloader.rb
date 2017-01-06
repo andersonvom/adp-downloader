@@ -30,7 +30,7 @@ module IPay
     def get_all_statements
       statements.each do |statement|
         if statement.exists?
-          puts "Statement #{statement.id} already exists"
+          puts "Statement #{statement.filename} already exists"
           next
         else
           puts "Saving #{statement.pay_date} - #{statement.id}..."
