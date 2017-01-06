@@ -29,9 +29,7 @@ module IPay
     end
 
     def download_or_skip_statement(statement)
-      if downloaded? statement
-        puts "Statement #{statement.filename} already exists"
-      else
+      if not downloaded? statement
         puts "Saving #{statement.pay_date} - #{statement.id}..."
         download_statement_files(statement)
       end
