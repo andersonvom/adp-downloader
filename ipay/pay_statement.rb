@@ -1,7 +1,5 @@
 module IPay
   class PayStatement
-    attr_accessor :details, :image
-
     def initialize(json)
       @data = json
     end
@@ -33,15 +31,6 @@ module IPay
 
     def json
       "#{filename}.json"
-    end
-
-    def exists?
-      File.exists? pdf and File.exists? json
-    end
-
-    def save
-      File.open(json, 'w') {|f| f.write(details)}
-      File.open(pdf, 'w') {|f| f.write(image)}
     end
   end
 end

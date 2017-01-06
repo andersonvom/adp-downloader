@@ -14,8 +14,10 @@ module IPay
       JSON.parse(download(url))
     end
 
-    def download(url, name = nil)
-      Typhoeus.get(url, headers: @headers).response_body
+    def download(url, save_path = nil)
+      contents = Typhoeus.get(url, headers: @headers).response_body
+      File.open(save_path, 'w') {|f| f.write(contents)} if save_path
+      contents
     end
   end
 end

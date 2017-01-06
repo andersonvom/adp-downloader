@@ -20,22 +20,23 @@ module IPay
       response["payStatements"].map { |json| PayStatement.new(json) }
     end
 
-    def get_detailed_statement(statement)
-      detailed_statement = statement.dup
-      detailed_statement.details = @http_client.download(full_url(statement.details_url))
-      detailed_statement.image = @http_client.download(full_url(statement.image_url))
-      detailed_statement
+    def download_statement_files(statement)
+      @http_client.download(full_url(statement.details_url), statement.json)
+      @http_client.download(full_url(statement.image_url), statement.pdf)
+    end
+
+    def downloaded?(statement)
+      File.exists? statement.pdf and File.exists? statement.json
     end
 
     def get_all_statements
       statements.each do |statement|
-        if statement.exists?
+        if downloaded? statement
           puts "Statement #{statement.filename} already exists"
           next
         else
           puts "Saving #{statement.pay_date} - #{statement.id}..."
-          detailed_statement = get_detailed_statement(statement)
-          detailed_statement.save
+          download_statement_files(statement)
         end
       end
     end
