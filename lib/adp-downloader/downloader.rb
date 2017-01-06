@@ -1,7 +1,7 @@
 require 'parallel'
 require_relative './pay_statement'
 
-module IPay
+module ADPDownloader
   class Downloader
     BASE_URL = 'https://my.adp.com'
     ALL_STATEMENTS_PATH = '/v1_0/O/A/payStatements?adjustments=yes&numberoflastpaydates=100'

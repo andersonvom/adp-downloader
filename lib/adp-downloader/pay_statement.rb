@@ -1,4 +1,4 @@
-module IPay
+module ADPDownloader
   class PayStatement
     def initialize(json)
       @data = json

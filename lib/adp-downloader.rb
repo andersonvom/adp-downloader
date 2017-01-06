@@ -4,8 +4,8 @@ require_relative './adp-downloader/pay_statement'
 
 module ADPDownloader
   def self.download
-    http_client = IPay::HttpClient.new
-    downloader = IPay::Downloader.new(http_client)
+    http_client = HttpClient.new
+    downloader = Downloader.new(http_client)
     downloader.get_all_statements
   end
 end

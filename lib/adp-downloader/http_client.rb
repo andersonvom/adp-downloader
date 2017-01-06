@@ -1,7 +1,7 @@
 require 'json'
 require 'mechanize'
 
-module IPay
+module ADPDownloader
   class HttpClient
     LOGIN_URL = "https://agateway.adp.com/siteminderagent/forms/login.fcc"
     TARGET_URL = "https://my.adp.com/static/redbox/"
