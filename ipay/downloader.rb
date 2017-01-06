@@ -27,15 +27,18 @@ module IPay
       File.exists? statement.pdf and File.exists? statement.json
     end
 
+    def download_or_skip_statement(statement)
+      if downloaded? statement
+        puts "Statement #{statement.filename} already exists"
+      else
+        puts "Saving #{statement.pay_date} - #{statement.id}..."
+        download_statement_files(statement)
+      end
+    end
+
     def get_all_statements
       statements.each do |statement|
-        if downloaded? statement
-          puts "Statement #{statement.filename} already exists"
-          next
-        else
-          puts "Saving #{statement.pay_date} - #{statement.id}..."
-          download_statement_files(statement)
-        end
+        download_or_skip_statement(statement)
       end
     end
   end
