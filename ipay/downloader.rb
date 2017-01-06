@@ -2,8 +2,6 @@ require_relative './pay_statement'
 
 module IPay
   class Downloader
-    attr_writer :http_client
-
     BASE_URL = 'https://my.adp.com'
     ALL_STATEMENTS_PATH = '/v1_0/O/A/payStatements?adjustments=yes&numberoflastpaydates=100'
 
