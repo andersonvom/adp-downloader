@@ -1,3 +1,4 @@
+require 'parallel'
 require_relative './pay_statement'
 
 module IPay
@@ -37,7 +38,7 @@ module IPay
     end
 
     def get_all_statements
-      statements.each do |statement|
+      Parallel.each(statements) do |statement|
         download_or_skip_statement(statement)
       end
     end
