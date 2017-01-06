@@ -40,8 +40,8 @@ module IPay
     end
 
     def save
-      File.open(json, 'w') {|f| f.write(details.read)}
-      File.open(pdf, 'w') {|f| f.write(image.read)}
+      File.open(json, 'w') {|f| f.write(details)}
+      File.open(pdf, 'w') {|f| f.write(image)}
     end
   end
 end

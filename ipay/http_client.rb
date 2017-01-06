@@ -1,18 +1,21 @@
 require 'json'
-require 'open-uri'
+require 'typhoeus'
 
 module IPay
   class HttpClient
     def initialize(cookies)
-      @cookies = cookies
+      @headers = {
+        "Cookie" => cookies,
+        "Accept" => "application/json, text/plain, */*",
+      }
     end
 
     def get(url)
-      JSON.parse(download(url).read)
+      JSON.parse(download(url))
     end
 
     def download(url, name = nil)
-      open(url, "Cookie" => @cookies, "Accept" => "application/json, text/plain, */*")
+      Typhoeus.get(url, headers: @headers).response_body
     end
   end
 end
