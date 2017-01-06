@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require_relative '../ipay/ipay'
+require 'ipay'
 
 http_client = IPay::HttpClient.new
 downloader = IPay::Downloader.new(http_client)
