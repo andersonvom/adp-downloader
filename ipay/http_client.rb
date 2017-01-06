@@ -12,7 +12,7 @@ module IPay
     end
 
     def download(url, name = nil)
-      open(url, "Cookie" => @cookies)
+      open(url, "Cookie" => @cookies, "Accept" => "application/json, text/plain, */*")
     end
   end
 end
