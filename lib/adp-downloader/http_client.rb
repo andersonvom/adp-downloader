@@ -1,16 +1,16 @@
 require 'json'
 require 'mechanize'
+require_relative './config'
 
 module ADPDownloader
   class HttpClient
     LOGIN_URL = "https://agateway.adp.com/siteminderagent/forms/login.fcc"
     TARGET_URL = "https://my.adp.com/static/redbox/"
-    CREDENTIALS_FILE = File.join(Dir.pwd, "credentials.json")
 
     def initialize
       headers = {"Accept" => "application/json, text/plain, */*"}
       @agent = Mechanize.new {|a| a.request_headers = headers}
-      _login(JSON.parse(open(CREDENTIALS_FILE).read))
+      _login(Config.credentials)
     end
 
     def _login(creds)
