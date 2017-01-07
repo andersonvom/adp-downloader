@@ -7,12 +7,7 @@ Gem::Specification.new do |s|
   s.description = "This app incrementally downloads ADP pay statments from ADP's iPay"
   s.authors     = ["Anderson Mesquita"]
   s.email       = "andersonvom@gmail.com"
-  s.files       = %w(
-    lib/adp-downloader.rb
-    lib/adp-downloader/downloader.rb
-    lib/adp-downloader/http_client.rb
-    lib/adp-downloader/pay_statement.rb
-  )
+  s.files       = Dir.glob(File.join("lib", "**", "*"))
   s.homepage    = "http://rubygems.org/gems/adp-downloader"
   s.license     = "MIT"
 end
