@@ -10,7 +10,8 @@ module ADPDownloader
     def initialize
       headers = {"Accept" => "application/json, text/plain, */*"}
       @agent = Mechanize.new {|a| a.request_headers = headers}
-      _login(Config.credentials)
+      res = _login(Config.credentials)
+      _exit_on_error(res)
     end
 
     def _login(creds)
@@ -19,6 +20,14 @@ module ADPDownloader
         "user" => creds["username"],
         "password" => creds["password"],
       })
+    end
+
+    def _exit_on_error(res)
+      uri = res.uri.to_s.downcase
+      if not uri.start_with? TARGET_URL or uri.include? "login"
+        puts "Unable to authenticate: make sure your username and password are correct"
+        exit 1
+      end
     end
 
     def get(url)
