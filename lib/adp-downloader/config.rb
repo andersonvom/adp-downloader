@@ -1,3 +1,4 @@
+require 'io/console'
 require 'json'
 
 module ADPDownloader
@@ -5,16 +6,24 @@ module ADPDownloader
     CREDENTIALS_FILE = File.join(Dir.pwd, "credentials.json")
 
     def self.credentials
-      JSON.parse(read_credentials_file)
+      if File.exists? CREDENTIALS_FILE
+        JSON.parse(open(CREDENTIALS_FILE).read)
+      else
+        {"username" => username, "password" => password}
+      end
     end
 
-    def self.read_credentials_file
-      if File.exists? CREDENTIALS_FILE
-        open(CREDENTIALS_FILE).read
-      else
-        puts "Please create the credentials.json file"
-        exit 1
-      end
+    private
+    def self.username
+      print "Username: "
+      STDIN.gets.chomp
+    end
+
+    def self.password
+      print "Password: "
+      password = STDIN.noecho(&:gets).chomp
+      puts
+      password
     end
   end
 end
