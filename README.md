@@ -6,12 +6,12 @@ from [MyADP][] and stores both the JSON and the PDF version of the pay
 statement.  If called multiple times, it will download only statements
 that have not yet been downloaded.
 
-### Installation
+## Installation
 
     gem install adp-downloader
 
 
-### Usage
+## Usage
 
 Go to the directory where you want the pay stubs to be saved and run:
 
@@ -37,7 +37,7 @@ Creating this file will skip the interactive step.
 This program is not afiliated with ADP.
 
 
-### License
+## License
 
 adp-downloader is released under the [GPL License][gpl].
 
