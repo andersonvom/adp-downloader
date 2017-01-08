@@ -1,8 +1,8 @@
 ADP Downloader
 ==============
 
-This app automatically downloads all ADP iPay pay statements (pay stubs)
-from ADP and stores both the JSON and the PDF version of the pay
+This app automatically downloads all [ADP][] pay statements (pay stubs)
+from [MyADP][] and stores both the JSON and the PDF version of the pay
 statement.  If called multiple times, it will download only statements
 that have not yet been downloaded.
 
@@ -32,8 +32,16 @@ If you want to run it automatically (e.g. in a cron job), create a
 Creating this file will skip the interactive step.
 
 
+## Disclaimer
+
+This program is not afiliated with ADP.
+
+
 ### License
 
 adp-downloader is released under the [GPL License][gpl].
 
+
+[ADP]: https://www.adp.com/
+[MyADP]: https://my.adp.com
 [gpl]: https://www.gnu.org/licenses/gpl-3.0-standalone.html
