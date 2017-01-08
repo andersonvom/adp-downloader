@@ -30,3 +30,10 @@ If you want to run it automatically (e.g. in a cron job), create a
     }
 
 Creating this file will skip the interactive step.
+
+
+### License
+
+adp-downloader is released under the [GPL License][gpl].
+
+[gpl]: https://www.gnu.org/licenses/gpl-3.0-standalone.html
