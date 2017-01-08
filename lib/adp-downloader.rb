@@ -4,13 +4,13 @@ require_relative './adp-downloader/pay_statement'
 
 module ADPDownloader
   def self.download
-    http_client = HttpClient.new
     begin
-      downloader = Downloader.new(http_client)
+      downloader = Downloader.new(HttpClient.new)
       downloader.get_all_statements
     rescue Exception => e
       path = log_exception_to_file(e)
-      puts "An error ocurred. Details were logged to #{path}"
+      puts "An error ocurred: #{e}"
+      puts "Details were logged to #{path}"
       exit 1
     end
   end
