@@ -25,8 +25,7 @@ module ADPDownloader
     def _exit_on_error(res)
       uri = res.uri.to_s.downcase
       if not uri.start_with? TARGET_URL or uri.include? "login"
-        puts "Unable to authenticate: make sure your username and password are correct"
-        exit 1
+        raise "Unable to authenticate: make sure your username and password are correct"
       end
     end
 
