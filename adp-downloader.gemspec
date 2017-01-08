@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.date        = "2017-01-07"
   s.summary     = "ADP pay statements / pay stubs downloader"
   s.description = "This app incrementally downloads ADP pay statments from ADP's iPay"
-  s.authors     = ["Anderson Mesquita"]
+  s.authors     = ["Anderson Mesquita (andersonvom)"]
   s.email       = "andersonvom@gmail.com"
   s.files       = Dir[
     "adp-downloader.gemspec",
