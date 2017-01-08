@@ -1,8 +1,8 @@
 Gem::Specification.new do |s|
   s.name        = "adp-downloader"
-  s.version     = "0.1.0"
+  s.version     = "0.1.1"
   s.executables << "adp-downloader"
-  s.date        = "2017-01-06"
+  s.date        = "2017-01-07"
   s.summary     = "ADP pay statements / pay stubs downloader"
   s.description = "This app incrementally downloads ADP pay statments from ADP's iPay"
   s.authors     = ["Anderson Mesquita"]
@@ -14,5 +14,5 @@ Gem::Specification.new do |s|
     "*.md",
   ]
   s.homepage    = "http://rubygems.org/gems/adp-downloader"
-  s.license     = "MIT"
+  s.license     = "GPL-3.0"
 end
