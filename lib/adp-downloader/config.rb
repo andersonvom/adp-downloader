@@ -1,5 +1,6 @@
 require 'io/console'
 require 'netrc'
+require 'adp-downloader/constants'
 
 module ADPDownloader
   class Config
@@ -14,7 +15,7 @@ module ADPDownloader
 
     def self.from_netrc
       n = Netrc.read
-      username, password = n["adp-downloader"]
+      username, password = n[MACHINE_NAME]
       creds(username, password) if username and password
     end
 

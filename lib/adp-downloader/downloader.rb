@@ -1,11 +1,9 @@
 require 'parallel'
+require 'adp-downloader/constants'
 require 'adp-downloader/pay_statement'
 
 module ADPDownloader
   class Downloader
-    BASE_URL = 'https://my.adp.com'
-    ALL_STATEMENTS_PATH = '/v1_0/O/A/payStatements?adjustments=yes&numberoflastpaydates=100'
-
     def initialize(http_client)
       @http_client = http_client
     end
