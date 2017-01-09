@@ -1,6 +1,6 @@
-require_relative './adp-downloader/downloader'
-require_relative './adp-downloader/http_client'
-require_relative './adp-downloader/pay_statement'
+require 'adp-downloader/downloader'
+require 'adp-downloader/http_client'
+require 'adp-downloader/pay_statement'
 
 module ADPDownloader
   def self.download

@@ -1,5 +1,5 @@
 require 'parallel'
-require_relative './pay_statement'
+require 'adp-downloader/pay_statement'
 
 module ADPDownloader
   class Downloader
