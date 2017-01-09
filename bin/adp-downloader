@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
-require 'adp-downloader'
+require "bundler/setup"
+require "adp-downloader"
 
 ADPDownloader.download
