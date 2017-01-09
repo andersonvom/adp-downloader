@@ -9,7 +9,7 @@ module ADPDownloader
 
     private
     def self.creds(username, password)
-      { "username" => username, "password" => password }
+      { username: username, password: password }
     end
 
     def self.from_netrc

@@ -32,8 +32,8 @@ module ADPDownloader
     def _login(creds)
       @agent.post(LOGIN_URL, {
         "target" => TARGET_URL,
-        "user" => creds["username"],
-        "password" => creds["password"],
+        "user" => creds[:username],
+        "password" => creds[:password],
       })
     end
 
