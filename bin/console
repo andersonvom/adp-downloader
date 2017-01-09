@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "adp-downloader"
+
+require "pry"
+Pry.start
