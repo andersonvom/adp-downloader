@@ -19,4 +19,9 @@ Gem::Specification.new do |s|
   s.bindir        = "bin"
   s.executables   = s.files.grep(%r{^bin/}) { |f| File.basename(f) }
   s.require_paths = ["lib"]
+
+  s.add_dependency "mechanize", "~> 2.7"
+  s.add_dependency "parallel", "~> 1.10"
+  s.add_development_dependency "bundler", "~> 1.13"
+  s.add_development_dependency "rake", "~> 10.0"
 end
