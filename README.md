@@ -21,13 +21,11 @@ Enter your credentials and profit: all pay statements currently
 available will be downloaded.  When you receive your next paycheck, just
 go back to the directory and re-run `adp-downloader`.
 
-If you want to run it automatically (e.g. in a cron job), create a
-`credentials.json` file in your directory of choice first:
+If you want to run it automatically (e.g. in a cron job), create or edit
+you local `.netrc` file (usually in your home directory, unless you put
+it somewhere else) with your credentials:
 
-    {
-      "username": "--some-username--",
-      "password": "--some-password--"
-    }
+    machine adp-downloader login "--your-username" password "--your-password--""
 
 Creating this file will skip the interactive step.
 

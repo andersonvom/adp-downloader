@@ -1,29 +1,30 @@
 require 'io/console'
-require 'json'
+require 'netrc'
 
 module ADPDownloader
   class Config
-    CREDENTIALS_FILE = File.join(Dir.pwd, "credentials.json")
-
     def self.credentials
-      if File.exists? CREDENTIALS_FILE
-        JSON.parse(open(CREDENTIALS_FILE).read)
-      else
-        {"username" => username, "password" => password}
-      end
+      from_netrc or from_stdin
     end
 
     private
-    def self.username
-      print "Username: "
-      STDIN.gets.chomp
+    def self.creds(username, password)
+      { "username" => username, "password" => password }
     end
 
-    def self.password
+    def self.from_netrc
+      n = Netrc.read
+      username, password = n["adp-downloader"]
+      creds(username, password) if username and password
+    end
+
+    def self.from_stdin
+      print "Username: "
+      username = STDIN.gets.chomp
       print "Password: "
       password = STDIN.noecho(&:gets).chomp
       puts
-      password
+      creds(username, password)
     end
   end
 end
