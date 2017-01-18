@@ -20,8 +20,11 @@ module ADPDownloader
       @agent.post(url, data)
     end
 
-    def download(url, save_path = nil)
+    def download(url, save_path = nil, json = false)
       contents = @agent.get(url).body
+      if json
+        contents = JSON.pretty_generate(JSON.parse(contents))
+      end
       File.open(save_path, 'w') {|f| f.write(contents)} if save_path
       contents
     end
