@@ -17,19 +17,15 @@ module ADPDownloader
       response["payStatements"].map { |json| PayStatement.new(json) }
     end
 
-    def download_statement_files(statement)
-      @http_client.download(full_url(statement.details_url), statement.json)
-      @http_client.download(full_url(statement.image_url), statement.pdf)
-    end
-
-    def downloaded?(statement)
-      File.exists? statement.pdf and File.exists? statement.json
-    end
-
     def download_or_skip_statement(statement)
-      if not downloaded? statement
-        puts "Saving #{statement.pay_date} - #{statement.id}..."
-        download_statement_files(statement)
+      unless File.exists? statement.json or statement.details_url.nil?
+        puts "Saving #{statement.json}..."
+        @http_client.download(full_url(statement.details_url), statement.json, true)
+      end
+
+      unless File.exists? statement.pdf
+        puts "Saving #{statement.pdf}..."
+        @http_client.download(full_url(statement.image_url), statement.pdf)
       end
     end
 

@@ -5,7 +5,8 @@ module ADPDownloader
     end
 
     def id
-      File.basename(@data["payDetailUri"]["href"])
+      path = File.basename(@data["statementImageUri"]["href"])
+      path.gsub(/\.pdf/, '')
     end
 
     def pay_date
@@ -14,23 +15,35 @@ module ADPDownloader
 
     def image_url
       path = @data["statementImageUri"]["href"]
-			path.gsub(/^\/l2/, '') # remove first characters, since it's incorrect o.O
+      path.gsub(/^\/l2/, '') # remove first characters, since it's incorrect o.O
     end
 
     def details_url
-      @data["payDetailUri"]["href"]
+      if @data["payDetailUri"] && @data["payDetailUri"]["href"]
+        return @data["payDetailUri"]["href"]
+      else
+        return nil
+      end
+    end
+
+    def adjustment?
+      @data["payAdjustmentIndicator"]
     end
 
     def filename
-      "#{@data["payDate"]}-#{id}"
+      if adjustment?
+        return "#{@data["payDate"]} #{id} - Adjustment"
+      else
+        return "#{@data["payDate"]} #{id}"
+      end
     end
 
     def pdf
-      "#{filename}.pdf"
+      "pdf/#{filename}.pdf"
     end
 
     def json
-      "#{filename}.json"
+      "json/#{filename}.json"
     end
   end
 end
