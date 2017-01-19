@@ -1,12 +1,12 @@
 require 'adp-downloader/downloader'
 require 'adp-downloader/http_client'
-require 'adp-downloader/pay_statement'
 
 module ADPDownloader
   def self.download
     begin
       downloader = Downloader.new(HttpClient.new)
-      downloader.get_all_statements
+      downloader.get_all_tax_statements
+      downloader.get_all_pay_statements
     rescue Exception => e
       path = log_exception_to_file(e)
       puts "An error ocurred: #{e}"

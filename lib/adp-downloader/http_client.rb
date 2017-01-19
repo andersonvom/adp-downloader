@@ -22,11 +22,16 @@ module ADPDownloader
 
     def download(url, save_path = nil)
       contents = @agent.get(url).body
-      File.open(save_path, 'w') {|f| f.write(contents)} if save_path
+      _save(contents, save_path) if save_path
       contents
     end
 
     private
+    def _save(contents, path)
+      FileUtils.mkpath(File.dirname(path))
+      File.open(path, 'w') { |f| f.write(contents) }
+    end
+
     def _login(creds)
       @agent.post(LOGIN_URL, {
         "target" => TARGET_URL,
