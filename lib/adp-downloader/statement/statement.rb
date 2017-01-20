@@ -48,9 +48,14 @@ module ADPDownloader
 
     private
     def get_info(data, attributes)
-      return data if attributes.empty?
       attr = attributes.first
-      get_info(data[attr] || {}, attributes.drop(1))
+      info = data[attr]
+      if attributes.size == 1
+        info
+      else
+        next_data = info.nil? ? {} : info
+        get_info(next_data, attributes.drop(1))
+      end
     end
   end
 end
