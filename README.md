@@ -24,6 +24,8 @@ available anymore in the new folders.
 
 ## Usage
 
+### Iterative
+
 Go to the directory where you want the pay stubs to be saved and run:
 
     adp-downloader
@@ -32,6 +34,8 @@ Enter your credentials and profit: all pay statements currently
 available will be downloaded, both in JSON and PDF formats.  When you
 receive your next paycheck, just go back to the directory and re-run
 `adp-downloader`.
+
+### Unattended
 
 If you want to run it automatically (e.g. in a cron job), create or edit
 you local [`.netrc` file][netrc] (usually in your home directory, unless
