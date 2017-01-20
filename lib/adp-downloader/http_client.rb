@@ -1,7 +1,7 @@
-require 'json'
-require 'mechanize'
-require 'adp-downloader/config'
-require 'adp-downloader/constants'
+require "json"
+require "mechanize"
+require "adp-downloader/config"
+require "adp-downloader/constants"
 
 module ADPDownloader
   class HttpClient
@@ -29,7 +29,7 @@ module ADPDownloader
     private
     def _save(contents, path)
       FileUtils.mkpath(File.dirname(path))
-      File.open(path, 'w') { |f| f.write(contents) }
+      File.open(path, "w") { |f| f.write(contents) }
     end
 
     def _login(creds)

@@ -1,7 +1,7 @@
-require 'parallel'
-require 'adp-downloader/constants'
-require 'adp-downloader/statement/pay_statement'
-require 'adp-downloader/statement/tax_statement'
+require "parallel"
+require "adp-downloader/constants"
+require "adp-downloader/statement/pay_statement"
+require "adp-downloader/statement/tax_statement"
 
 module ADPDownloader
   class Downloader

@@ -1,5 +1,5 @@
-require 'adp-downloader/downloader'
-require 'adp-downloader/http_client'
+require "adp-downloader/downloader"
+require "adp-downloader/http_client"
 
 module ADPDownloader
   def self.download
