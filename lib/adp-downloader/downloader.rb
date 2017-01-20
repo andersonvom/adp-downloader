@@ -24,12 +24,12 @@ module ADPDownloader
     end
 
     def download_statement_files(statement)
-      @http_client.download(full_url(statement.json_uri), statement.json)
+      @http_client.download(full_url(statement.json_uri), statement.json) if statement.json_uri
       @http_client.download(full_url(statement.pdf_uri), statement.pdf)
     end
 
     def downloaded?(statement)
-      File.exists? statement.pdf and File.exists? statement.json
+      File.exists? statement.pdf
     end
 
     def download_or_skip_statement(statement)
