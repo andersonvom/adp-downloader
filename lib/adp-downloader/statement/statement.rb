@@ -6,16 +6,12 @@ module ADPDownloader
       @data = json
     end
 
-    def id
-      raise "You need to define `id` for #{self.class}"
-    end
+    abstract_methods = %w(id dirname date)
 
-    def dirname
-      raise "You need to define `dirname` for #{self.class}"
-    end
-
-    def date
-      raise "You need to define `date` for #{self.class}"
+    abstract_methods.each do |method_name|
+      define_method method_name do
+        raise "You need to define `#{method_name}` for #{self.class}"
+      end
     end
 
     def filename
