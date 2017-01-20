@@ -6,10 +6,6 @@ module ADPDownloader
       _("statementID")
     end
 
-    def dirname
-      TAX_DIR
-    end
-
     def date
       _("statementYear.year")
     end

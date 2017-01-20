@@ -1,12 +1,10 @@
-require "adp-downloader/constants"
-
 module ADPDownloader
   class Statement
     def initialize(json)
       @data = json
     end
 
-    abstract_methods = %w(id dirname date)
+    abstract_methods = %w(id date)
 
     abstract_methods.each do |method_name|
       define_method method_name do
@@ -28,12 +26,16 @@ module ADPDownloader
       path.gsub(/^\/l2/, "") # remove first characters, since it's incorrect o.O
     end
 
+    def year
+      date.split("-").first
+    end
+
     def pdf
-      File.join(dirname, PDF_DIR, "#{filename}.pdf")
+      File.join(year, "#{filename}.pdf")
     end
 
     def json
-      File.join(dirname, JSON_DIR, "#{filename}.json")
+      File.join(year, "#{filename}.json")
     end
 
     def _(string)

@@ -10,9 +10,4 @@ module ADPDownloader
   LOGIN_URL = "https://agateway.adp.com/siteminderagent/forms/login.fcc"
   PAY_STATEMENTS_PATH = "/v1_0/O/A/payStatements?adjustments=yes&numberoflastpaydates=100"
   TAX_STATEMENTS_PATH = "/v1_0/O/A/workerTaxStatements"
-
-  TAX_DIR = "tax"
-  PAY_DIR = "pay"
-  PDF_DIR = "pdf"
-  JSON_DIR = "json"
 end

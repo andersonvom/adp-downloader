@@ -6,10 +6,6 @@ module ADPDownloader
       File.basename(pdf_uri, ".*")
     end
 
-    def dirname
-      PAY_DIR
-    end
-
     def date
       _("payDate")
     end
