@@ -27,7 +27,7 @@ module ADPDownloader
 
     def pdf_uri
       path = _("statementImageUri.href")
-      path.gsub(/^\/l2/, "") # remove first characters, since it's incorrect o.O
+      path.gsub(%r{^/l2}, "") # remove first characters, since it's incorrect o.O
     end
 
     def year
