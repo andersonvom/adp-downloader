@@ -18,7 +18,11 @@ module ADPDownloader
     end
 
     def filename
-      "#{date}-#{id}"
+      [date, id, file_suffix].compact.join("-")
+    end
+
+    def file_suffix
+      nil
     end
 
     def pdf_uri
