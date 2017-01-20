@@ -11,6 +11,17 @@ that have not yet been downloaded.
     gem install adp-downloader  # you might have to use sudo
 
 
+## Upgrading
+
+### 0.1.x --> 0.2.x
+
+Statements are stored by year and the app uses the PDF ID, that is
+always available, instead of the ID of the detailed JSON, and statements
+are also stored in directories by year.  You might want to save backup
+your current statements and manually merge the ones that might not be
+available anymore in the new folders.
+
+
 ## Usage
 
 Go to the directory where you want the pay stubs to be saved and run:
