@@ -14,6 +14,11 @@ module ADPDownloader
       end
     end
 
+    def merge(details)
+      top_level_attr, contents = details.first
+      { top_level_attr => @data.merge(contents) }
+    end
+
     def filename
       "#{date}-#{id}"
     end

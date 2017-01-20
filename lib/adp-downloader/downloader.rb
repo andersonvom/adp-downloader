@@ -1,3 +1,4 @@
+require "json"
 require "parallel"
 require "adp-downloader/constants"
 require "adp-downloader/statement/pay_statement"
@@ -24,8 +25,13 @@ module ADPDownloader
     end
 
     def download_statement_files(statement)
-      @http_client.download(full_url(statement.json_uri), statement.json) if statement.json_uri
-      @http_client.download(full_url(statement.pdf_uri), statement.pdf)
+      if statement.json_uri
+        json = @http_client.get(full_url(statement.json_uri)) if statement.json_uri
+        _save(JSON.pretty_generate(statement.merge(json)), statement.json)
+      end
+
+      pdf = @http_client.download(full_url(statement.pdf_uri))
+      _save(pdf, statement.pdf)
     end
 
     def downloaded?(statement)
@@ -49,6 +55,12 @@ module ADPDownloader
       Parallel.each(tax_statements) do |statement|
         download_or_skip_statement(statement)
       end
+    end
+
+    private
+    def _save(contents, path)
+      FileUtils.mkpath(File.dirname(path))
+      File.open(path, "w") { |f| f.write(contents) }
     end
   end
 end
