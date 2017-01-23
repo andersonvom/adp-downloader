@@ -17,7 +17,7 @@ module ADPDownloader
 
   private
   def self.log_exception_to_file(e)
-    file = Tempfile.new
+    file = Tempfile.new("adp-downloader-")
     file.puts(e)
     file.puts(e.backtrace)
     FileUtils.mv file.path, File.join("", "tmp")
