@@ -2,4 +2,5 @@
 
 require "adp-downloader"
 
-ADPDownloader.download
+runner = ADPDownloader::Runner.new
+runner.run
