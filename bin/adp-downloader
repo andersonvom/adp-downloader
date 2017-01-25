@@ -2,5 +2,5 @@
 
 require "adp-downloader"
 
-runner = ADPDownloader::Runner.new
+runner = ADPDownloader::Runner.new(ARGV)
 runner.run
