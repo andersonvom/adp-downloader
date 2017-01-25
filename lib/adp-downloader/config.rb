@@ -1,6 +1,5 @@
 require "io/console"
 require "netrc"
-require "adp-downloader/constants"
 
 module ADPDownloader
   class Config

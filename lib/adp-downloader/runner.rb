@@ -1,8 +1,5 @@
 require "tempfile"
 require "optparse"
-require "adp-downloader/config"
-require "adp-downloader/downloader"
-require "adp-downloader/http_client"
 
 module ADPDownloader
   class Runner

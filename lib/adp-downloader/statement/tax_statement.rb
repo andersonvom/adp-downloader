@@ -1,5 +1,3 @@
-require "adp-downloader/statement/statement"
-
 module ADPDownloader
   class TaxStatement < Statement
     def id

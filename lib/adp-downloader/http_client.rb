@@ -1,7 +1,5 @@
 require "json"
 require "mechanize"
-require "adp-downloader/config"
-require "adp-downloader/constants"
 
 module ADPDownloader
   class HttpClient
