@@ -5,8 +5,14 @@ require "adp-downloader/constants"
 module ADPDownloader
   class Config
     class << self
+      attr_writer :quiet
+
       def credentials
         from_netrc or from_stdin
+      end
+
+      def quiet?
+        @quiet
       end
 
       private

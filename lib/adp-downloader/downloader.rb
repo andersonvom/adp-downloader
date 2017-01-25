@@ -40,18 +40,20 @@ module ADPDownloader
 
     def download_or_skip_statement(statement)
       if not downloaded? statement
-        puts "Saving #{statement.date} - #{statement.id}..."
+        puts "Saving #{statement.date} - #{statement.id}..." unless Config.quiet?
         download_statement_files(statement)
       end
     end
 
     def get_all_pay_statements
+      puts "Downloading all pay statements..." unless Config.quiet?
       Parallel.each(pay_statements) do |statement|
         download_or_skip_statement(statement)
       end
     end
 
     def get_all_tax_statements
+      puts "Downloading all tax statements..." unless Config.quiet?
       Parallel.each(tax_statements) do |statement|
         download_or_skip_statement(statement)
       end
