@@ -8,9 +8,17 @@ Changelog
 
 ## 0.2.1
 
+* [88d8f76][] Add command line options to prevent output
+
+[88d8f76]: ../../commit/88d8f76
+
+
+## 0.2.1
+
 * [#3][] Fixed bug with Tempfiles in older versions of ruby
 
 [#3]: ../../issues/3
+
 
 ## 0.2.0
 
@@ -31,7 +39,6 @@ previously downloaded old statements (those no longer available through the
 API) into the correct new directories.  The names of older statements will
 still have the old ID but since they're no longer available through the API,
 this should not cause any problems.
-
 
 ### Other changes:
 
