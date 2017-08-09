@@ -6,6 +6,13 @@ Changelog
 * -
 
 
+## 0.2.4
+
+* [91dfaaa][] Add --version cmdline option
+
+[91dfaaa]: ../../commit/91dfaaa
+
+
 ## 0.2.3
 
 * [f73306b][] Add employer cmdline option
