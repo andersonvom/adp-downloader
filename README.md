@@ -30,6 +30,9 @@ Go to the directory where you want the pay stubs to be saved and run:
 
     adp-downloader
 
+    # if you want to download stubs from multiple employers/accounts
+    adp-downloader --employer <employername>
+
 Enter your credentials and profit: all pay statements currently
 available will be downloaded, both in JSON and PDF formats.  When you
 receive your next paycheck, just go back to the directory and re-run
@@ -41,7 +44,11 @@ If you want to run it automatically (e.g. in a cron job), create or edit
 you local [`.netrc` file][netrc] (usually in your home directory, unless
 you put it somewhere else) with your credentials:
 
+    # in case of a single employer/account
     machine adp-downloader login ___username___ password ___password___
+
+    # for multiple employers/accounts
+    machine adp-downloader-employername login ___username___ password ___password___
 
 Adding your credentials to this file will skip the interactive step.
 

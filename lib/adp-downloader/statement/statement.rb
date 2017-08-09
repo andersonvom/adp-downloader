@@ -22,7 +22,8 @@ module ADPDownloader
     end
 
     def full_path(name)
-      File.join(year, name)
+      parts = [Config.employer, year, name].compact
+      File.join(*parts)
     end
 
     def file_suffix

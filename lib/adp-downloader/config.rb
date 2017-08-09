@@ -5,6 +5,7 @@ module ADPDownloader
   class Config
     class << self
       attr_writer :quiet
+      attr_accessor :employer
 
       def credentials
         from_netrc or from_stdin
@@ -21,7 +22,8 @@ module ADPDownloader
 
       def from_netrc
         n = Netrc.read
-        username, password = n[MACHINE_NAME]
+        credential_string = [MACHINE_NAME, employer].compact.join('-')
+        username, password = n[credential_string]
         creds(username, password) if username and password
       end
 
