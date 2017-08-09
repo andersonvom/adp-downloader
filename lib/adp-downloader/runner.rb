@@ -35,6 +35,7 @@ module ADPDownloader
       options.banner = "Usage: adp-downloader [options]"
       options.on("-e", "--employer EMP", "Employer name") { |e| Config.employer = e }
       options.on("-v", "--quiet", "Only display errors") { Config.quiet = true }
+      options.on("--version", "Display the current version") { puts(VERSION); exit }
       options.on("-h", "--help",  "Show this message")   { puts(options); exit }
       options.parse!(@arguments)
     end
