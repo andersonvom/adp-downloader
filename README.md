@@ -13,6 +13,15 @@ that have not yet been downloaded.
 
 ## Upgrading
 
+### 0.2.x --> 0.2.3
+
+Statements can now be downloaded by employer/account. This is not a
+breaking change, but if you want to start downloading statements from
+multiple employers/accounts, you might want to consider moving all your
+previous statements into a directory named after the employer. See
+readme for details. Always backup your statements before upgrading and
+running new versions.
+
 ### 0.1.x --> 0.2.x
 
 Statements are stored by year and the app uses the PDF ID, that is

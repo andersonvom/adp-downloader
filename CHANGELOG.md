@@ -6,6 +6,13 @@ Changelog
 * -
 
 
+## 0.2.3
+
+* [f73306b][] Add employer cmdline option
+
+[f73306b]: ../../commit/f73306b
+
+
 ## 0.2.1
 
 * [88d8f76][] Add command line options to prevent output
