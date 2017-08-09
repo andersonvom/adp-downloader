@@ -21,6 +21,10 @@ module ADPDownloader
       [date, id, file_suffix].compact.join("-")
     end
 
+    def full_path(name)
+      File.join(year, name)
+    end
+
     def file_suffix
       nil
     end
@@ -35,11 +39,11 @@ module ADPDownloader
     end
 
     def pdf
-      File.join(year, "#{filename}.pdf")
+      full_path("#{filename}.pdf")
     end
 
     def json
-      File.join(year, "#{filename}.json")
+      full_path("#{filename}.json")
     end
 
     def _(string)
