@@ -6,6 +6,13 @@ Changelog
 * -
 
 
+## 0.2.5
+
+* [00e3ff6][] Gracefully handle empty tax or pay statements
+
+[00e3ff6]: ../../commit/00e3ff6
+
+
 ## 0.2.4
 
 * [91dfaaa][] Add --version cmdline option
