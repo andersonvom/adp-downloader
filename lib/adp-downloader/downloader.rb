@@ -13,12 +13,12 @@ module ADPDownloader
 
     def pay_statements
       response = @http_client.get(full_url(PAY_STATEMENTS_PATH))
-      response["payStatements"].map { |json| PayStatement.new(json) }
+      response.fetch("payStatements", []).map { |json| PayStatement.new(json) }
     end
 
     def tax_statements
       response = @http_client.get(full_url(TAX_STATEMENTS_PATH))
-      response["workerTaxStatements"].map { |json| TaxStatement.new(json) }
+      response.fetch("workerTaxStatements", []).map { |json| TaxStatement.new(json) }
     end
 
     def download_statement_files(statement)

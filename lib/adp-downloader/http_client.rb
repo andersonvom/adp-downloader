@@ -11,7 +11,8 @@ module ADPDownloader
     end
 
     def get(url)
-      JSON.parse(download(url))
+      contents = download(url)
+      contents.to_s.empty? ? {} : JSON.parse(contents)
     end
 
     def post(url, data)
