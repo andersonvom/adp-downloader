@@ -6,6 +6,13 @@ Changelog
 * -
 
 
+## 0.3.0
+
+* [e05377b][] Disable netrc authentication in favor of cookie only :(
+
+[e05377b]: ../../commit/e05377b
+
+
 ## 0.2.5
 
 * [00e3ff6][] Gracefully handle empty tax or pay statements

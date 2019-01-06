@@ -13,6 +13,12 @@ that have not yet been downloaded.
 
 ## Upgrading
 
+### 0.2.x --> 0.3.x
+
+Non-interactive `netrc` authentication is currently not supported due to
+ADP requiring javascript to perform login. Unfortunately, the only way
+to use the app is to ask for the `smsession` cookie from `stdin`. :(
+
 ### 0.2.x --> 0.2.3
 
 Statements can now be downloaded by employer/account. This is not a
