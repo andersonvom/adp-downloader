@@ -23,7 +23,7 @@ module ADPDownloader
 
     def download_statement_files(statement)
       if statement.json_uri
-        json = @http_client.get(full_url(statement.json_uri)) if statement.json_uri
+        json = _get_or_log(statement) if statement.json_uri
         _save(JSON.pretty_generate(statement.merge(json)), statement.json)
       end
 
@@ -50,6 +50,15 @@ module ADPDownloader
     end
 
     private
+    def _get_or_log(statement)
+      begin
+        @http_client.get(full_url(statement.json_uri))
+      rescue
+        puts "Error downloading statement: #{statement.date} - #{statement.id}"
+        raise
+      end
+    end
+
     def _save(contents, path)
       FileUtils.mkpath(File.dirname(path))
       File.open(path, "w") { |f| f.write(contents) }
