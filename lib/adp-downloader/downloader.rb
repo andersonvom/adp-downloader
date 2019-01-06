@@ -42,16 +42,9 @@ module ADPDownloader
       end
     end
 
-    def get_all_pay_statements
-      puts "Downloading all pay statements..." unless Config.quiet?
-      Parallel.each(pay_statements) do |statement|
-        download_or_skip_statement(statement)
-      end
-    end
-
-    def get_all_tax_statements
-      puts "Downloading all tax statements..." unless Config.quiet?
-      Parallel.each(tax_statements) do |statement|
+    def get_statements(type, statements)
+      puts "Downloading all #{type} statements..." unless Config.quiet?
+      Parallel.each(statements) do |statement|
         download_or_skip_statement(statement)
       end
     end
