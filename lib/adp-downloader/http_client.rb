@@ -4,7 +4,8 @@ require "mechanize"
 module ADPDownloader
   class HttpClient
     def initialize
-      _raise_on_error(_login(Config.credentials))
+      # FIXME: https://github.com/andersonvom/adp-downloader/issues/6
+      #_raise_on_error(_login(Config.credentials))
     end
 
     def get(url)
@@ -22,8 +23,12 @@ module ADPDownloader
 
     private
     def agent
-      headers = {"Accept" => "application/json, text/plain, */*"}
-      @agent ||= Mechanize.new {|a| a.request_headers = headers}
+      return @agent if @agent
+      headers = {
+        "Accept" => "application/json, text/plain, */*",
+        "Cookie" => "SMSESSION=#{Config.credentials[:smsession_cookie]}",
+      }
+      @agent = Mechanize.new {|a| a.request_headers = headers}
     end
 
     def _login(creds)
