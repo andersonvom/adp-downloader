@@ -4,10 +4,7 @@ require "mechanize"
 module ADPDownloader
   class HttpClient
     def initialize
-      headers = {"Accept" => "application/json, text/plain, */*"}
-      @agent = Mechanize.new {|a| a.request_headers = headers}
-      res = _login(Config.credentials)
-      _raise_on_error(res)
+      _raise_on_error(_login(Config.credentials))
     end
 
     def get(url)
@@ -16,16 +13,21 @@ module ADPDownloader
     end
 
     def post(url, data)
-      @agent.post(url, data)
+      agent.post(url, data)
     end
 
     def download(url)
-      @agent.get(url).body
+      agent.get(url).body
     end
 
     private
+    def agent
+      headers = {"Accept" => "application/json, text/plain, */*"}
+      @agent ||= Mechanize.new {|a| a.request_headers = headers}
+    end
+
     def _login(creds)
-      @agent.post(LOGIN_URL, {
+      agent.post(LOGIN_URL, {
         "target" => TARGET_URL,
         "user" => creds[:username],
         "password" => creds[:password],
