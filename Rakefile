@@ -1,7 +1,8 @@
 require "rubygems/package_task"
 
-spec = eval(File.read("adp-downloader.gemspec"))
-Gem::PackageTask.new(spec) do |pkg|
+SPEC = eval(File.read("adp-downloader.gemspec"))
+
+Gem::PackageTask.new(SPEC) do |pkg|
   pkg.need_zip = false
   pkg.need_tar = false
 end
@@ -9,6 +10,13 @@ end
 task :default => [:gem]
 
 task :install => [:gem] do
-  gem_path = "pkg/adp-downloader-#{spec.version}.gem"
   sh "gem install #{gem_path}"
+end
+
+task :publish => [:gem] do
+  sh "gem push #{gem_path}"
+end
+
+def gem_path
+  "pkg/adp-downloader-#{SPEC.version}.gem"
 end
