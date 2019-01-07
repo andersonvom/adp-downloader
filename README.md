@@ -17,7 +17,7 @@ that have not yet been downloaded.
 
 Non-interactive `netrc` authentication is currently not supported due to
 ADP requiring javascript to perform login. Unfortunately, the only way
-to use the app is to ask for the `smsession` cookie from `stdin`. :(
+to use the app is to pass the `smsession` cookie. :(
 
 ### 0.2.x --> 0.2.3
 
