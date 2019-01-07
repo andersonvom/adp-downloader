@@ -6,6 +6,13 @@ Changelog
 * -
 
 
+## 0.3.2
+
+* [6d3edab][] Fix bug when displaying auth error messages
+
+[6d3edab]: ../../commit/6d3edab
+
+
 ## 0.3.1
 
 * [9236c97][] Display better error message on auth error
