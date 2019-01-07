@@ -6,6 +6,13 @@ Changelog
 * -
 
 
+## 0.3.1
+
+* [9236c97][] Display better error message on auth error
+
+[9236c97]: ../../commit/9236c97
+
+
 ## 0.3.0
 
 * [e05377b][] Disable netrc authentication in favor of cookie only :(
