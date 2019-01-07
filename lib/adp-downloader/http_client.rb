@@ -9,8 +9,10 @@ module ADPDownloader
     end
 
     def get(url)
-      contents = download(url)
-      contents.to_s.empty? ? {} : JSON.parse(contents)
+      res = agent.get(url)
+      _raise_on_error(res)
+      contents = res.body
+      contents.body.to_s.empty? ? {} : JSON.parse(contents)
     end
 
     def post(url, data)
@@ -41,7 +43,8 @@ module ADPDownloader
     def _raise_on_error(res)
       uri = res.uri.to_s.downcase
       if not uri.start_with? TARGET_URL or uri.include? "login"
-        raise "Unable to authenticate: make sure your username and password are correct"
+        #raise "Unable to authenticate: make sure your username and password are correct"
+        raise "Unable to authenticate: make sure the file cookie.txt is up to date"
       end
     end
   end
