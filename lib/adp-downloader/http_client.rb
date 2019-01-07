@@ -23,12 +23,11 @@ module ADPDownloader
 
     private
     def agent
-      return @agent if @agent
       headers = {
         "Accept" => "application/json, text/plain, */*",
         "Cookie" => "SMSESSION=#{Config.credentials[:smsession_cookie]}",
       }
-      @agent = Mechanize.new {|a| a.request_headers = headers}
+      @agent ||= Mechanize.new {|a| a.request_headers = headers}
     end
 
     def _login(creds)

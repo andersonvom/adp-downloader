@@ -8,7 +8,7 @@ module ADPDownloader
       attr_accessor :employer
 
       def credentials
-        from_stdin
+        @creds ||= from_stdin
       end
 
       def quiet?
