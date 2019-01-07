@@ -53,7 +53,7 @@ available will be downloaded, both in JSON and PDF formats.  When you
 receive your next paycheck, just go back to the directory and re-run
 `adp-downloader`.
 
-### Unattended
+### Unattended - CURRENTLY NOT WORKING - see [#6][]
 
 If you want to run it automatically (e.g. in a cron job), create or edit
 you local [`.netrc` file][netrc] (usually in your home directory, unless
@@ -66,6 +66,8 @@ you put it somewhere else) with your credentials:
     machine adp-downloader-employername login ___username___ password ___password___
 
 Adding your credentials to this file will skip the interactive step.
+
+[#6]: https://github.com/andersonvom/adp-downloader/issues/6
 
 
 ## Disclaimer
