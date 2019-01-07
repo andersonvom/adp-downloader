@@ -41,6 +41,12 @@ available anymore in the new folders.
 
 ### Iterative
 
+**UPDATE**: since [#6][], username and password do not work anymore, so
+currently the only way to make it work is to create a file called
+`cookie.txt` in the working directory containing the `SMSESSION` cookie.
+You can get this cookie by logging into ADP and retrieving it from the
+developer console. It's not great, I know 😞
+
 Go to the directory where you want the pay stubs to be saved and run:
 
     adp-downloader
