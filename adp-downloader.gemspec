@@ -22,8 +22,8 @@ Gem::Specification.new do |s|
 
   s.add_dependency "mechanize", "~> 2.7"
   s.add_dependency "netrc", "~> 0.11"
-  s.add_dependency "parallel", "~> 1.12"
-  s.add_development_dependency "bundler", "~> 1.16"
-  s.add_development_dependency "rake", "~> 12.3"
-  s.add_development_dependency "pry", "~> 0.11"
+  s.add_dependency "parallel", "~> 1.19"
+  s.add_development_dependency "bundler", "~> 2.1"
+  s.add_development_dependency "rake", "~> 13.0"
+  s.add_development_dependency "pry", "~> 0.12"
 end
