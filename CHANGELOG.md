@@ -6,6 +6,13 @@ Changelog
 * -
 
 
+## 0.4.0
+
+* [53b2204][] Tax statements can no longer be downloaded
+
+[53b2204]: ../../commit/53b2204
+
+
 ## 0.3.2
 
 * [6d3edab][] Fix bug when displaying auth error messages
