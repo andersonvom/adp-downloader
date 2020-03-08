@@ -11,8 +11,9 @@ module ADPDownloader
       parse_options
       begin
         downloader = Downloader.new(HttpClient.new)
-        downloader.get_statements('tax', downloader.tax_statements)
         downloader.get_statements('pay', downloader.pay_statements)
+        # FIXME: downloading tax statements requires extra steps :(
+        # downloader.get_statements('tax', downloader.tax_statements)
       rescue Exception => e
         path = log_exception_to_file(e)
         puts "An error ocurred: #{e}"
