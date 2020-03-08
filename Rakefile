@@ -15,6 +15,7 @@ end
 
 task :publish => [:gem] do
   sh "gem push #{gem_path}"
+  sh "gem push --key github --host https://rubygems.pkg.github.com/andersonvom #{gem_path}"
 end
 
 def gem_path
